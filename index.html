@@ -7,22 +7,35 @@
     <meta name="author" content="Maciej Giza">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC" rel="stylesheet">  
     <link href="https://fonts.googleapis.com/css?family=Lato" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-
+    <div id="win-page" class="overlay">
+        <div class="overlay-content">
+            <div class='win-note'>
+                <div class="rotate fa fa-pagelines"></div>
+                <div class="fa fa-pagelines"></div>
+                <p class="congrats">CONGRATULATIONS YOU WON</p>
+                <p id="won-moves"></p>
+                <button class="button" onclick="playAgain()">Play again</button>
+            </div>
+       </div>            
+    </div>
     <div class="container">
         <header>
-            <h1>Magic Matcher</h1>
+            <h1>★ MAGIC MATCHER ★</h1>
         </header>
 
         <section class="menu">
-            <div id="moves">Moves: 0</div>
-            <div class="reset fa fa-repeat" onclick="resetGame()">
+            <div class="menu-container">
+                <p id="moves">Moves: 0</p>
+                <p id="quotes" class="winning-quote"></p>
+                <div class="reset fa fa-repeat"></div>
             </div>
         </section>
-        <section class="board">
+        <div class="board">
             <div class="deck">
             </div>
         </section>

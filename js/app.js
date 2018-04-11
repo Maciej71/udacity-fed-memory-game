@@ -1,8 +1,22 @@
 const symbols = ['fa-angellist', 'fa-android', 'fa-bell', 'fa-github-alt' ,'fa-car' ,'fa-bug', 'fa-heart', 'fa-child'];
 const deck = document.getElementsByClassName('deck')[0];
 let visibleIcons = [];
+const quotes = {start:"Let's get started", match:'What a MATCH!', keep:'Keep going'};
 let moves = 0;
 let win = 0;
+
+function init() {
+    createADeck();
+    addListenerForReset();
+    setQuote(quotes.start);
+}
+
+function setQuote(quote) {
+    const textContainer = document.getElementById('quotes');
+    textContainer.innerText = quote;
+    textContainer.classList.toggle('winning-quote');
+   
+}
 
 function createADeck() {
     const fragment = document.createDocumentFragment();
@@ -44,15 +58,39 @@ function addListenerForTurningCard(element) {
     });
 }
 
+function addListenerForReset() {
+    const resetButton = document.getElementsByClassName('reset')[0];
+    resetButton.addEventListener('click', async function() {
+        resetButton.classList.toggle('reduce');
+        while(deck.firstChild) {
+            deck.removeChild(deck.firstChild);
+        }
+        moves = 1;
+        setDisplayedMoves(0);
+        createADeck();
+        await sleep(150);
+        resetButton.classList.toggle('reduce');
+    });
+}
+
 function flip(icon) {
     icon.parentNode.classList.toggle('flip');
     icon.classList.toggle('hiden-card');
 }
 
-function isMatch() { 
+async function isMatch() { 
     if(visibleIcons.length === 2 && visibleIcons[0] !== visibleIcons[1]) {
         if(areCardsMatch()) {
+            win++;
             matchingHelper();
+            setQuote(quotes.match);
+            if(win === 8) {
+                moves++;
+                setDisplayedMoves(moves);
+                openWinPage();
+            }
+            await sleep(2500);
+            setQuote(quotes.keep);
         }
         else {
             clearIcons();
@@ -79,7 +117,7 @@ function areCardsMatch() {
 
     for(let element of firstCardClasses) {
         if(!secondCardClasses.contains(element)) {
-            moves +=1;
+            moves++;
             setDisplayedMoves(moves);
             return false;
         }
@@ -88,25 +126,23 @@ function areCardsMatch() {
 }
 
 function matchingHelper() {
-
     visibleIcons.forEach((e) => {
         e.parentNode.classList.add('matched');
-        e.classList.add('enlarge');
     });
     visibleIcons = [];
 } 
 
-function resetGame() {
-    while(deck.firstChild) {
-        deck.removeChild(deck.firstChild);
-    }
-    moves = 0;
-    setDisplayedMoves(0);
-    createADeck();
-}
-
 function setDisplayedMoves(toSet) {
-    document.getElementById('moves').innerText = "Moves: " + toSet;
+    document.getElementById('moves').innerText = 'Moves: ' + toSet;
 }
 
-createADeck();
+function openWinPage() {
+    document.getElementById('win-page').style.width = '100%';
+    document.getElementById('won-moves').innerText = 'You did it in ' + moves + (moves === 1 ? 'move':' moves');
+}
+
+function playAgain() {
+    window.location.reload(false);
+}
+
+init();

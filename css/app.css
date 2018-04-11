@@ -1,5 +1,5 @@
 body {
-    font-family: Lato, sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 .container {
@@ -8,25 +8,49 @@ body {
     flex-wrap: wrap;
 }
 
+h1 {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 4vmin;
+    letter-spacing: 2.1vmin;
+    width: 80vmin;
+    margin: 0;
+    padding: 1vmin 2vmin;
+    white-space:nowrap;
+    color: #00416B;
+}
+
 .menu {
-    flex: 100%;
-    flex-grow: initial;
+    flex: 100%; 
+    align-items: center;
+    align-content: space-between;
+    
+}
+
+.menu-container {
+    display: table;
+    table-layout: fixed;
+    width: 76vmin;
+    margin: auto;
+    padding: 3vmin 0vmin;
+    color: #1F6795;
+}
+
+#quotes {
+    display: table-cell;
+    text-align: center;
+    font-size: 3vmin;
 }
 
 #moves {
-    display: inline;
-    margin: 30%;
+    display: table-cell;
+    font-size: 3vmin;
 }
 
 .reset {
-    display: inline;
-    border: solid;
-    transition: 2s;
-}
-
-.reset:hover {
-    background-color: gray;
-    transform: rotateZ( 180deg );
+    display: table-cell;
+    font-size: 4vmin;
+    cursor: pointer;
+    text-align: right;
 }
 
 .deck {
@@ -55,10 +79,6 @@ body {
 
 .matched {
     background-color: #AF690B;
-    display: inline-block;
-    transform-style: preserve-3d;
-    transition: transform 1s;
-    transform: rotateY( 180deg );
 }
 
 .board {
@@ -71,9 +91,6 @@ body {
 }
 
 .flip {
-    position: relative;
-    perspective: 800px;
-    transform-style: preserve-3d;
     transition: transform 1s;
     transform: rotateY( 180deg );
     -webkit-box-shadow: -0.6vmin 0.8vmin 0.5vmin 0vmin rgba(50, 50, 50, 0.75);
@@ -81,7 +98,62 @@ body {
             box-shadow: -0.6vmin 0.8vmin 0.5vmin 0vmin rgba(50, 50, 50, 0.75);
 }
 
-.enlarge {
-    transition: transform 2s ease-in-out;
-    transform: scale(1.15);
+.reduce {
+    transition: transform 100ms;
+    transform: scale(0.75);
+    color: gray;
 }
+
+.winning-quote {
+    color: #AF690B;
+    font-weight: bold;
+}
+
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    background-color: rgba(78, 186, 186, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.win-note {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-top: 15vmin;
+} 
+
+.button {
+    background-color: #168C8C;
+    border: none;
+    color: white;
+    padding: 4vmin 9vmin;
+    text-align: center;
+    display: inline-block;
+    font-size: 4vmin;
+    cursor: pointer;
+}
+
+.rotate {
+    transform: rotate(180deg)
+}
+
+.fa-pagelines {
+    font-size: 5vmin;
+}
+
+.congrats {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 6vmin;
+    padding: 0 3vmin;
+}
+
+#won-moves {
+    font-size: 3vmin;
+    padding: 4vmin;
+}
+
