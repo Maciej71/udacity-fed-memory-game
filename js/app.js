@@ -88,7 +88,6 @@ function addListenerForReset() {
         game.moves = 1;
         game.visibleIcons = [];
         game.win = 0;
-        // game.stars = 3;
         resetStars();
         game.starTimer = 0; 
         resetTimer();
@@ -140,7 +139,7 @@ async function isMatch() {
             game.win++;
             matchingHelper();
             setQuote(game.quotes.match);
-            if(game.win === 1) {
+            if(game.win === 8) {
                 game.moves++;
                 setDisplayedMoves(game.moves);
                 openWinPage();
