@@ -33,24 +33,37 @@ h1 {
     margin: auto;
     padding: 3vmin 0vmin;
     color: #1F6795;
-}
-
-#quotes {
-    display: table-cell;
     text-align: center;
     font-size: 3vmin;
 }
 
+
 #moves {
     display: table-cell;
-    font-size: 3vmin;
+    text-align: left;
+    width: 20%;
+}
+
+.stars {
+    display: table-cell;
+    width: 15%;
+}
+
+#quotes {
+    display: table-cell;
+}
+
+.timer {
+    display: table-cell;
+    width: 15%;
 }
 
 .reset {
     display: table-cell;
-    font-size: 4vmin;
+    /* font-size: 4vmin; */
     cursor: pointer;
     text-align: right;
+    width: 7%;
 }
 
 .deck {
@@ -152,8 +165,21 @@ h1 {
     padding: 0 3vmin;
 }
 
-#won-moves {
+.stats {
     font-size: 3vmin;
-    padding: 4vmin;
+    padding: 2vmin;
+}
+
+.star-summary {
+    display: inline-table;
+}
+
+#star-text {
+    display: table-cell;
+    padding: 1vmin;
+}
+
+#star-icon {
+    display: table-cell;
 }
 

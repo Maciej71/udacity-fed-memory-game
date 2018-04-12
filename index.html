@@ -6,7 +6,7 @@
     <meta name="description" content="Simple Memmory Game">
     <meta name="author" content="Maciej Giza">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC" rel="stylesheet">  
     <link href="https://fonts.googleapis.com/css?family=Lato" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="css/app.css">
@@ -18,7 +18,14 @@
                 <div class="rotate fa fa-pagelines"></div>
                 <div class="fa fa-pagelines"></div>
                 <p class="congrats">CONGRATULATIONS YOU WON</p>
-                <p id="won-moves"></p>
+                <div class="stats">
+                    <p id="win-moves"></p>
+                    <p id="win-time"></p>
+                    <div class="star-summary">
+                        <p id="star-text"></p>
+                        <i id="star-icon" class="fa fa-star"></i>
+                    </div>
+                </div>
                 <button class="button" onclick="playAgain()">Play again</button>
             </div>
        </div>            
@@ -27,11 +34,20 @@
         <header>
             <h1>★ MAGIC MATCHER ★</h1>
         </header>
-
         <section class="menu">
             <div class="menu-container">
                 <p id="moves">Moves: 0</p>
+                <div class="stars">
+                    <i id="star1" class="fa fa-star"></i>
+                    <i id="star2" class="fa fa-star"></i>
+                    <i id="star3" class="fa fa-star"></i>
+                </div>
                 <p id="quotes" class="winning-quote"></p>
+                <p class="timer">
+                    <span id="minutes">00</span>
+                    <span id="delimiter"> : </span>
+                    <span id="seconds">00</span>
+                </p>
                 <div class="reset fa fa-repeat"></div>
             </div>
         </section>
